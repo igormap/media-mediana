@@ -18,7 +18,13 @@
         <td app-td>{{ item.col4 }}</td>
         <td app-td>{{ item.col5 }}</td>
         <td app-td>{{ item.col6 }}</td>
-        <td app-td [center]="true">{{ item.col7 }}</td>
+        <td app-td [center]="true">
+          <div app-tag-status [status]="item.col7">
+            {{
+              item.col7 === statusEnum.Concluded ? "Concluído" : "Processando"
+            }}
+          </div>
+        </td>
       </tr>
       }
     </tbody>

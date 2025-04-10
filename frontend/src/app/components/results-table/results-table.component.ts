@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
 import { AppThDirective } from '../th/th.component';
 import { AppTdDirective } from '../td/td.component';
+import { TagStatusDirective } from '../tag-status/tag-status.component';
+import { Status } from '../tag-status/tag-status.component';
 
 @Component({
   selector: 'app-results-table',
-  imports: [AppThDirective, AppTdDirective],
+  imports: [AppThDirective, AppTdDirective, TagStatusDirective],
   templateUrl: './results-table.component.html',
   styleUrl: './results-table.component.css',
   standalone: true,
 })
 export class ResultsTableComponent {
+  statusEnum = Status;
   tableHeaders = [
     '#ID',
     'Valor A',
@@ -27,6 +30,6 @@ export class ResultsTableComponent {
     col4: `Col 4`,
     col5: `Col 5`,
     col6: `Col 6`,
-    col7: `Col 7`,
+    col7: i % 2 === 0 ? Status.Concluded : Status.Processing,
   }));
 }
