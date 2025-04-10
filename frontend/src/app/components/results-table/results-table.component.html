@@ -1,0 +1,26 @@
+<div class="overflow-x-auto">
+  <table class="min-w-full border-none text-sm text-left">
+    <thead class="bg-gray-100 text-gray-700">
+      <tr>
+        @for (item of tableHeaders; let i = $index; track item) {
+        <th app-th [first]="i === 0" [last]="i === tableHeaders.length - 1">
+          {{ item }}
+        </th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of data; track item) {
+      <tr class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
+        <td app-td [center]="true" [faded]="true">{{ item.col1 }}</td>
+        <td app-td>{{ item.col2 }}</td>
+        <td app-td>{{ item.col3 }}</td>
+        <td app-td>{{ item.col4 }}</td>
+        <td app-td>{{ item.col5 }}</td>
+        <td app-td>{{ item.col6 }}</td>
+        <td app-td [center]="true">{{ item.col7 }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
