@@ -1,0 +1,16 @@
+<div>
+  @if (label) {
+  <label class="block mb-1 text-sm font-semibold text-[#009AA0]">
+    {{ label }}
+  </label>
+  }
+  <input
+    class="bg-white rounded-md h-10 w-64 border border-[#009AA0] px-3 focus:outline-none focus:ring-2 focus:ring-[#009AA0] placeholder:text-[#222B45]/40"
+    [type]="type"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [value]="value"
+    (input)="handleInput($event)"
+    (blur)="onTouched()"
+  />
+</div>
