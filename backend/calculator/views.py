@@ -29,3 +29,8 @@ class CalculoAPIView(APIView):
             return Response(resposta.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request):
+        calculos = Calculo.objects.all().order_by("-id")
+        resposta = CalculoSerializer(calculos, many=True)
+        return Response(resposta.data, status=status.HTTP_200_OK)

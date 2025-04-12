@@ -21,4 +21,7 @@ export class ApiService {
       payload
     );
   }
+  listResults() {
+    return this.httpClient.get<CalculateResponse[]>(this.apiUrl + '/results/');
+  }
 }
