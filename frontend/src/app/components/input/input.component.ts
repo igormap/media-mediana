@@ -1,9 +1,14 @@
 import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  ReactiveFormsModule,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
+  imports: [ReactiveFormsModule],
   styleUrls: ['./input.component.css'],
   providers: [
     {

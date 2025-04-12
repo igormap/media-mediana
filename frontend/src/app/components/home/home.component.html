@@ -4,17 +4,30 @@
     Este sistema realiza o cálculo da Média e da Mediana entre três valores
     númericos reais positivos A, B e C.
   </p>
-  <div class="flex items-end gap-6 mb-10">
+  <form [formGroup]="calculateForm" class="flex items-end gap-6 mb-10">
     <div class="flex items-center gap-6">
-      <app-input label="Campo A" placeholder="Insira o valor A" />
-      <app-input label="Campo B" placeholder="Insira o valor B" />
-      <app-input label="Campo C" placeholder="Insira o valor C" />
+      <app-input
+        formControlName="number1"
+        label="Campo A"
+        placeholder="Insira o valor A"
+      />
+      <app-input
+        formControlName="number2"
+        label="Campo B"
+        placeholder="Insira o valor B"
+      />
+      <app-input
+        formControlName="number3"
+        label="Campo C"
+        placeholder="Insira o valor C"
+      />
     </div>
     <button
+      (click)="submit()"
       class="rounded-md bg-[#009AA0] text-white px-4 py-2 font-semibold w-24 h-10 hover:bg-[#009AA0]/80 cursor-pointer transition-colors"
     >
       Calcular
     </button>
-  </div>
+  </form>
   <app-results-table />
 </div>
