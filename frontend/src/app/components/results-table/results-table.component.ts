@@ -20,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
   standalone: true,
 })
 export class ResultsTableComponent {
-  statusEnum = Status;
+  statusEnum = 'Processando';
   calculations: CalculateResponse[] = [];
 
   constructor(private apiService: ApiService) {}

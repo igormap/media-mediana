@@ -1,26 +1,20 @@
-# core/tasks.py
-
 from celery import shared_task
-from calculator.models import Calculo
-import time
+from .models import Calculo
+import statistics
 
 
 @shared_task
 def calcular_media_mediana(calculo_id):
     try:
-        obj = Calculo.objects.get(id=calculo_id)
+        calculo = Calculo.objects.get(id=calculo_id)
+        numbers = [calculo.number1, calculo.number2, calculo.number3]
+        average = sum(numbers) / 3
+        median = statistics.median(numbers)
 
-        # Simula tempo de processamento
-        time.sleep(5)
-
-        numeros = [obj.number1, obj.number2, obj.number3]
-        media = sum(numeros) / 3
-        mediana = sorted(numeros)[1]
-
-        obj.average = media
-        obj.median = mediana
-        obj.status = "Concluído"
-        obj.save()
+        calculo.average = float("{:.2f}".format(average))
+        calculo.median = median
+        calculo.status = "Concluído"
+        calculo.save()
 
     except Calculo.DoesNotExist:
-        print(f"Registro com id {calculo_id} não encontrado.")
+        pass

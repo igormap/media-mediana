@@ -18,15 +18,12 @@
         <td app-td>{{ item.number1 }}</td>
         <td app-td>{{ item.number2 }}</td>
         <td app-td>{{ item.number3 }}</td>
-        <td app-td>{{ item.average.toFixed(2) }}</td>
-        <td app-td>{{ item.median.toFixed(2) }}</td>
+        <td app-td>{{ item.average ? item.average.toFixed(2) : "-" }}</td>
+        <td app-td>{{ item.median ? item.median.toFixed(2) : "-" }}</td>
         <td app-td [center]="true">
-          <div app-tag-status>Processando</div>
-          <!-- <div app-tag-status [status]="item.status">
-            {{
-              item.col7 === statusEnum.Concluded ? "Concluído" : "Processando"
-            }}
-          </div> -->
+          <div app-tag-status [status]="item.status">
+            {{ item.status }}
+          </div>
         </td>
       </tr>
       }

@@ -12,6 +12,7 @@ class CalculoSerializer(serializers.ModelSerializer):
             "number3",
             "average",
             "median",
+            "status",
             "created_at",
         ]
         read_only_fields = ["average", "median", "created_at"]

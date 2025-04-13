@@ -1,16 +1,13 @@
 import { Directive, HostBinding, Input } from '@angular/core';
 
-export enum Status {
-  Concluded,
-  Processing,
-}
+export type Status = 'Concluído' | 'Processando';
 
 @Directive({
   selector: 'div[app-tag-status]',
   standalone: true,
 })
 export class TagStatusDirective {
-  @Input() status: Status = Status.Processing;
+  @Input() status = 'Processando';
 
   @HostBinding('class')
   get classes(): string {
@@ -22,7 +19,7 @@ export class TagStatusDirective {
       'font-medium',
       'text-sm',
       'rounded-md',
-      this.status === Status.Concluded
+      this.status === 'Concluído'
         ? 'text-white bg-[#30D25E]'
         : 'text-[#4D4D4D] bg-[#FAE9A2]',
     ].join(' ');

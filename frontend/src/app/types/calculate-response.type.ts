@@ -5,5 +5,5 @@ export interface CalculateResponse {
   number3: number;
   average: number;
   median: number;
-  status: boolean;
+  status: string;
 }
