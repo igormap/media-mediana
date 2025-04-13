@@ -1,4 +1,4 @@
-# 📄 Relatório Técnico – Sistema de Processamento Assíncrono de Números
+# 📄 Sistema de Processamento Assíncrono de Números
 
 ## 📌 Objetivo
 
