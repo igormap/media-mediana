@@ -6,6 +6,7 @@ import { Status } from '../tag-status/tag-status.component';
 import { ApiService } from '../../services/api.service';
 import { CalculateResponse } from '../../types/calculate-response.type';
 import { HttpClientModule } from '@angular/common/http';
+import { Subscription, switchMap, timer } from 'rxjs';
 
 @Component({
   selector: 'app-results-table',
@@ -22,19 +23,20 @@ import { HttpClientModule } from '@angular/common/http';
 export class ResultsTableComponent {
   statusEnum = 'Processando';
   calculations: CalculateResponse[] = [];
+  subscription: Subscription | null = null;
 
   constructor(private apiService: ApiService) {}
 
-  ngOnInit() {
-    this.apiService.listResults().subscribe({
-      next: (results) => {
-        console.log('Resultados:', results);
-        this.calculations = results;
-      },
-      error: (err) => {
-        console.error('Erro ao buscar resultados:', err);
-      },
-    });
+  ngOnInit(): void {
+    this.subscription = timer(0, 2000)
+      .pipe(switchMap(() => this.apiService.listResults()))
+      .subscribe((dados) => {
+        this.calculations = dados;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
   }
 
   tableHeaders = [
