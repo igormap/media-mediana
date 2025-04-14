@@ -41,11 +41,11 @@ Usuário → Angular → Django API → RabbitMQ → Celery Worker → Banco de 
 
 ### 1. Backend (Django + DRF)
 - Criação do modelo `Processamento` com os campos `num1`, `num2`, `num3`, `status`, `media`, `mediana`.
-- Criação do endpoint `POST /processar/`:
+- Criação do endpoint `POST /calculate/`:
   - Valida os dados.
   - Armazena a requisição com status “Processando”.
   - Envia a tarefa para a fila do RabbitMQ.
-- Criação do endpoint `GET /status/{id}` para retornar o status e resultados.
+- Criação do endpoint `GET /results/` para retornar os resultados.
 - Configuração do Celery com backend Django.
 - Implementação da tarefa Celery que consome a fila, realiza os cálculos e atualiza o banco.
 
@@ -116,6 +116,6 @@ docker-compose up --build
 /backend          → Projeto Django
   └─ celery.py   → Configuração do Celery
   └─ tasks.py    → Tarefas assíncronas
-/worker           → Código do Celery Worker
 docker-compose.yml
 ```
+////
