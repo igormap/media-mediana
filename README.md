@@ -4,6 +4,10 @@
 
 Este projeto tem como finalidade desenvolver uma aplicação **Full Stack** capaz de processar três números enviados por um usuário. A aplicação realiza o cálculo de **média** e **mediana** de forma **assíncrona**, utilizando filas com **RabbitMQ** e **Celery**. O sistema armazena e exibe os resultados na interface web de forma clara e reativa.
 
+![image](https://github.com/user-attachments/assets/5effd476-1afe-4a08-bc86-3ebca46361ea)
+
+
+
 ---
 
 ## 🧰 Tecnologias Utilizadas
@@ -96,9 +100,12 @@ docker-compose up --build
 
 ## ✅ Extras Implementados
 
-- [ ] Atualização automática com WebSockets *(caso aplicável)*  
-- [ ] Testes automatizados com Pytest ou Django TestCase  
-- [ ] Interface responsiva com Angular Material
+- UX/UI: Prototipação de tela utilizando o Figma:
+    - Acessar em: https://www.figma.com/design/qGNSyDNDbFbZ382J5aemqM/FPF---Desafio-T%C3%A9cnico_Media-Mediana?node-id=40-5&t=Eq0urFWWwxFqX5oC-0
+- Implementação de Componentização
+- Estilização dos componentes utilizando Tailwind
+- Regex nos inputs de números
+- Atualização automática via Pooling para exibição dos status em tempo real
 
 ---
 
